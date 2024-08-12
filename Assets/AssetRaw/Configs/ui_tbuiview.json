@@ -1,0 +1,8 @@
+[
+  {
+    "view_name": "LoginView",
+    "path": "Assets/Prefabs/Views/LoginView/LoginView.prefab",
+    "view_type": 2,
+    "desc": "登录界面"
+  }
+]

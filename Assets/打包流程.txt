@@ -1,0 +1,8 @@
+1.HybridCLR Generate/All 导出
+2.找到HybridCLRData/HotUpdateDLLs目录 拿到HotUpdate.dll (热更程序集) Copy 到 资源目录 AssetRaw/Codes 下  改名 加上.bytes 后缀名
+3.找到HybridCLRData/AssembliesPostIl2CppStrip 拿到对应AOTGenericReferences.CS 集合下 对应的 DLL文件 Copy 到 资源目录 AssetRaw/Codes 下 改名 加上.bytes 后缀名
+
+------  程序热更资源完毕 -----
+
+4.收集资源模块 注：.bytes 打包规则 PackRawFile
+5.构建资源发布
