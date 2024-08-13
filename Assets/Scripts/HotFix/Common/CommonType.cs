@@ -108,7 +108,7 @@ public class Color2d
     /// <param name="quality">颜色品质</param>
     /// <param name="center">文本内容</param>
     /// <returns></returns>
-    public static string GetColorQualityByStr(int quality, string center)
+    public static string GetColorQualityByStr(string center,int quality)
     {
         return $"<color=#{GetQualityColor(quality)}>{center}</color>";
     }
@@ -119,7 +119,7 @@ public class Color2d
     /// <param name="color">颜色</param>
     /// <param name="center">文本内容</param>
     /// <returns></returns>
-    public static string GetColorByStr(string color, string center)
+    public static string GetColorByStr(string center,string color)
     {
         return $"<color=#{color}>{center}</color>";
     }
@@ -134,7 +134,21 @@ public class ViewName
     /// <summary>
     ///  登录界面
     /// </summary>
-    public static readonly string LoginView = "LoginView";
+    public const string LoginView = "LoginView";
+
+    /// <summary>
+    ///  通用弹窗界面
+    /// </summary>
+    public const string CommonPopView = "CommonPopView";
+
+    /// <summary>
+    ///  通用说明界面
+    /// </summary>
+    public const string RuleTipsView = "RuleTipsView";
+
+    /// <summary>
+    ///  创角界面
+    /// </summary>
+    public const string CreateRoleView = "CreateRoleView";
 
 }
-

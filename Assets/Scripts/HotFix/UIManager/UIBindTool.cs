@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Windows;
 
 public class UIBindTool : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class UIBindTool : MonoBehaviour
     }
 
     [Header("数据引用")]
-    public List<BindingVO> resList;
+    public List<BindingVO> resList = new List<BindingVO>();
 
     //组件导入规则
     #region
@@ -29,6 +30,7 @@ public class UIBindTool : MonoBehaviour
         ui_bings.Add("slider_");
         ui_bings.Add("scroll_");
         ui_bings.Add("game_");
+        ui_bings.Add("input_");
         //TODO
 
         RectTransform[] rectTransform_list = transform.GetComponentsInChildren<RectTransform>();

@@ -1,0 +1,117 @@
+[
+  {
+    "id": 1,
+    "desc": "生命值",
+    "attr_type": 1
+  },
+  {
+    "id": 2,
+    "desc": "法术值",
+    "attr_type": 1
+  },
+  {
+    "id": 3,
+    "desc": "行动力",
+    "attr_type": 1
+  },
+  {
+    "id": 4,
+    "desc": "物理攻击力",
+    "attr_type": 1
+  },
+  {
+    "id": 5,
+    "desc": "物理防御",
+    "attr_type": 1
+  },
+  {
+    "id": 6,
+    "desc": "破甲",
+    "attr_type": 2
+  },
+  {
+    "id": 7,
+    "desc": "攻击速度",
+    "attr_type": 2
+  },
+  {
+    "id": 8,
+    "desc": "法术攻击力",
+    "attr_type": 1
+  },
+  {
+    "id": 9,
+    "desc": "法术防御力",
+    "attr_type": 1
+  },
+  {
+    "id": 10,
+    "desc": "识破",
+    "attr_type": 2
+  },
+  {
+    "id": 11,
+    "desc": "施法速度",
+    "attr_type": 2
+  },
+  {
+    "id": 12,
+    "desc": "风属性强化",
+    "attr_type": 1
+  },
+  {
+    "id": 13,
+    "desc": "火属性强化",
+    "attr_type": 1
+  },
+  {
+    "id": 14,
+    "desc": "冰属性强化",
+    "attr_type": 1
+  },
+  {
+    "id": 15,
+    "desc": "雷属性强化",
+    "attr_type": 1
+  },
+  {
+    "id": 16,
+    "desc": "风属性抗性",
+    "attr_type": 1
+  },
+  {
+    "id": 17,
+    "desc": "火属性抗性",
+    "attr_type": 1
+  },
+  {
+    "id": 18,
+    "desc": "冰属性抗性",
+    "attr_type": 1
+  },
+  {
+    "id": 19,
+    "desc": "雷属性抗性",
+    "attr_type": 1
+  },
+  {
+    "id": 20,
+    "desc": "暴击率",
+    "attr_type": 2
+  },
+  {
+    "id": 21,
+    "desc": "暴击伤害",
+    "attr_type": 2
+  },
+  {
+    "id": 22,
+    "desc": "生命值回复",
+    "attr_type": 1
+  },
+  {
+    "id": 23,
+    "desc": "法术值回复",
+    "attr_type": 1
+  }
+]

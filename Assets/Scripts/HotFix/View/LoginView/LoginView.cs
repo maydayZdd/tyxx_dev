@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LoginView : BaseView
+public class LoginView : UIBaseView
 {
     #region 绑定组件
 
@@ -31,13 +32,17 @@ public class LoginView : BaseView
 
         btn_login.onClick.AddListener(() =>
         {
-
-
+            UICtrlView.Instance.OpenView(ViewName.CreateRoleView);
+            Close();
         });
 
         btn_gonggao.onClick.AddListener(() => {
 
-            Log.Info("开发中..");
+            UICtrlView.Instance.OpenCommonPopView(
+                ViewName.CommonPopView,
+                Language.GongGao,
+                Language.GongGaoContent
+            );
         });
 
         btn_exit.onClick.AddListener(() =>
@@ -55,7 +60,7 @@ public class LoginView : BaseView
 
     public override void OnFlush(string key)
     {
-
+        txt_version.text = string.Format(Language.GameVersion, "v"+Application.version) ;
     }
 
     public override void OnDestroy()

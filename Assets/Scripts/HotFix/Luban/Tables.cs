@@ -16,11 +16,17 @@ public partial class Tables
 {
     public item.TbItem TbItem {get; }
     public ui.TbUiView TbUiView {get; }
+    public attr.TbAttribute TbAttribute {get; }
+    public ratio.TbRatioAttr TbRatioAttr {get; }
+    public rule.TbRuleTips TbRuleTips {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
         TbItem = new item.TbItem(loader("item_tbitem"));
         TbUiView = new ui.TbUiView(loader("ui_tbuiview"));
+        TbAttribute = new attr.TbAttribute(loader("attr_tbattribute"));
+        TbRatioAttr = new ratio.TbRatioAttr(loader("ratio_tbratioattr"));
+        TbRuleTips = new rule.TbRuleTips(loader("rule_tbruletips"));
         ResolveRef();
     }
     
@@ -28,6 +34,9 @@ public partial class Tables
     {
         TbItem.ResolveRef(this);
         TbUiView.ResolveRef(this);
+        TbAttribute.ResolveRef(this);
+        TbRatioAttr.ResolveRef(this);
+        TbRuleTips.ResolveRef(this);
     }
 }
 

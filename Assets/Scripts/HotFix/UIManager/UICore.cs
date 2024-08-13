@@ -14,7 +14,7 @@ using YooAsset;
 public class UICore
 {
     // 记录面板各层级显示状态
-    public Dictionary<ViewType, Dictionary<string, BaseView>> dic_all_panel = new Dictionary<ViewType, Dictionary<string, BaseView>>();
+    public Dictionary<ViewType, Dictionary<string, UIBaseView>> dic_all_panel = new Dictionary<ViewType, Dictionary<string, UIBaseView>>();
 
     //界面销毁倒计时状态
     public Dictionary<string, CancellationTokenSource> dic_cancell_token = new Dictionary<string, CancellationTokenSource>();
@@ -32,10 +32,10 @@ public class UICore
         Log.Info("UICore Init...");
         UIRoot = GameObject.Find("UIRoot");
 
-        dic_all_panel.Add(ViewType.Main_View, new Dictionary<string, BaseView>());
-        dic_all_panel.Add(ViewType.Normal_View,new Dictionary<string, BaseView>());
-        dic_all_panel.Add(ViewType.Pop_View, new Dictionary<string, BaseView>());
-        dic_all_panel.Add(ViewType.Top_View, new Dictionary<string, BaseView>());
+        dic_all_panel.Add(ViewType.Main_View, new Dictionary<string, UIBaseView>());
+        dic_all_panel.Add(ViewType.Normal_View,new Dictionary<string, UIBaseView>());
+        dic_all_panel.Add(ViewType.Pop_View, new Dictionary<string, UIBaseView>());
+        dic_all_panel.Add(ViewType.Top_View, new Dictionary<string, UIBaseView>());
     }
 
 
@@ -76,7 +76,7 @@ public class UICore
     {
         Log.Info($"打开界面 {uIType.GuidName}");
         //先判断是否还存在
-        BaseView basePanel = default;
+        UIBaseView basePanel = default;
         if (dic_all_panel[uIType.ViewType].ContainsKey(uIType.GuidName))
         {
             basePanel = dic_all_panel[uIType.ViewType][uIType.GuidName];
@@ -86,7 +86,7 @@ public class UICore
         {
             //用反射来加载脚本
             Type type = Type.GetType(uIType.GuidName);
-            basePanel = Activator.CreateInstance(type) as BaseView;
+            basePanel = Activator.CreateInstance(type) as UIBaseView;
             basePanel.SetData(GetSingleObject(uIType), uIType, userData);
             dic_all_panel[uIType.ViewType].Add(basePanel.UIType.GuidName, basePanel);
             basePanel.OnInit();
@@ -124,7 +124,7 @@ public class UICore
     /// 倒计时销毁实体
     /// </summary>
     /// <returns></returns>
-    private async UniTaskVoid CountDownDestroy(BaseView basePanel)
+    private async UniTaskVoid CountDownDestroy(UIBaseView basePanel)
     {
         CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         dic_cancell_token.Add(basePanel.UIType.GuidName, cancellationTokenSource);
@@ -166,7 +166,7 @@ public class UICore
     /// 取消销毁实例
     /// </summary>
     /// <param name="basePanel"></param>
-    private void CancelCountDownDestroy(BaseView basePanel)
+    private void CancelCountDownDestroy(UIBaseView basePanel)
     {
         if (dic_cancell_token.ContainsKey(basePanel.UIType.GuidName))
         {
@@ -178,10 +178,10 @@ public class UICore
 
     public void CloseView(string guid_name,ViewType viewType) 
     {
-        Dictionary<string, BaseView> guid_base_view = dic_all_panel[viewType];
+        Dictionary<string, UIBaseView> guid_base_view = dic_all_panel[viewType];
         if (guid_base_view.ContainsKey(guid_name))
         {
-            BaseView baseView = guid_base_view[guid_name];
+            UIBaseView baseView = guid_base_view[guid_name];
             baseView.OnDisable();
             CountDownDestroy(baseView).Forget();
         }
@@ -189,10 +189,10 @@ public class UICore
 
     public void FlushView(string guid_name, ViewType viewType,string view_key)
     {
-        Dictionary<string, BaseView> guid_base_view = dic_all_panel[viewType];
+        Dictionary<string, UIBaseView> guid_base_view = dic_all_panel[viewType];
         if (guid_base_view.ContainsKey(guid_name))
         {
-            BaseView baseView = guid_base_view[guid_name];
+            UIBaseView baseView = guid_base_view[guid_name];
             baseView.OnFlush(view_key);
         }
     }

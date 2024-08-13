@@ -26,6 +26,8 @@ public class UICtrlView : Singleton<UICtrlView>
     protected UICtrlView(bool dummy) : base(dummy) { }
     public void Init() { }
 
+    #region 打开关闭刷新 通用方法
+
     /// <summary> 
     /// 打开界面
     /// </summary>
@@ -92,4 +94,20 @@ public class UICtrlView : Singleton<UICtrlView>
     {
         _uiCore.FlushView(guid_name, viewType, view_key);
     }
+
+    #endregion
+
+    #region 打开通用弹窗界面
+    public void OpenCommonPopView(string guid_name,string title,string content, Action ok_action = default,Action cal_action = default)
+    {
+        CommonPopView.CommonPopViewData commonPopViewData = new CommonPopView.CommonPopViewData(
+           _title :title,
+           _content : content,
+           _ok_action :ok_action,
+           _cal_action : cal_action
+        );
+        OpenView(guid_name, commonPopViewData);
+    }
+
+    #endregion
 }

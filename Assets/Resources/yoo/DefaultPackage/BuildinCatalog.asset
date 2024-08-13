@@ -13,25 +13,31 @@ MonoBehaviour:
   m_Name: BuildinCatalog
   m_EditorClassIdentifier: 
   PackageName: DefaultPackage
-  PackageVersion: 2024-08-12-595
+  PackageVersion: 2024-08-14-119
   Wrappers:
-  - BundleGUID: 189ec2d69e4b5fdd28d1981a16182d84
-    FileName: 189ec2d69e4b5fdd28d1981a16182d84.bundle
-  - BundleGUID: 1a21c78260ac5a07ea2cb792586360f2
-    FileName: 1a21c78260ac5a07ea2cb792586360f2.bundle
-  - BundleGUID: 1c3005d41e4294318274f505ace69ce8
-    FileName: 1c3005d41e4294318274f505ace69ce8.bundle
+  - BundleGUID: 2c9d6887a461c3553e4144e63ce8e2dc
+    FileName: 2c9d6887a461c3553e4144e63ce8e2dc.bundle
+  - BundleGUID: 5bbc3eb606cd4e19c97a5b6581ad4945
+    FileName: 5bbc3eb606cd4e19c97a5b6581ad4945.bundle
   - BundleGUID: 65a9d0e705d851ef15b3f8f678ddb7b7
     FileName: 65a9d0e705d851ef15b3f8f678ddb7b7.bundle
+  - BundleGUID: 6d39b6d12bf226e6d26773573ad751e8
+    FileName: 6d39b6d12bf226e6d26773573ad751e8.bundle
   - BundleGUID: 799a4802b17039fa134407bea6653dfb
     FileName: 799a4802b17039fa134407bea6653dfb.bundle
-  - BundleGUID: 8e2cad872ceb009fdc9948c072e15be5
-    FileName: 8e2cad872ceb009fdc9948c072e15be5.bundle
-  - BundleGUID: 9b12a3e6870e7d15c4a50e888b577862
-    FileName: 9b12a3e6870e7d15c4a50e888b577862.bundle
-  - BundleGUID: ce3776cfc8288967df5dc4fa221ce203
-    FileName: ce3776cfc8288967df5dc4fa221ce203.bundle
+  - BundleGUID: 7d67880ab47608eae70903106cfe8390
+    FileName: 7d67880ab47608eae70903106cfe8390.bundle
+  - BundleGUID: c1603387775104a0ab71078637eb063d
+    FileName: c1603387775104a0ab71078637eb063d.bundle
+  - BundleGUID: c2481ed91c9b7af9f33351909e71fb0b
+    FileName: c2481ed91c9b7af9f33351909e71fb0b.bundle
+  - BundleGUID: c5836d835ddc3e6551297327bacc2e21
+    FileName: c5836d835ddc3e6551297327bacc2e21.bundle
+  - BundleGUID: d04d22f76f3f9d465b7abe0d371b9d9b
+    FileName: d04d22f76f3f9d465b7abe0d371b9d9b.bundle
   - BundleGUID: d6654a4a51c542e23dcb9ea0b8b58928
     FileName: d6654a4a51c542e23dcb9ea0b8b58928.bundle
-  - BundleGUID: d97335c99c3e702da0e6a9d63ca8b6b1
-    FileName: d97335c99c3e702da0e6a9d63ca8b6b1.bundle
+  - BundleGUID: ed10a64e4b09a057b263006d4475dbce
+    FileName: ed10a64e4b09a057b263006d4475dbce.bundle
+  - BundleGUID: f532eace564f7d426af3f0c65238823c
+    FileName: f532eace564f7d426af3f0c65238823c.bundle

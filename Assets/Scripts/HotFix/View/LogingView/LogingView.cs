@@ -6,7 +6,7 @@ using UnityEngine;
 /// <summary>
 /// 加载界面
 /// </summary>
-public class LogingView : BaseView
+public class LogingView : UIBaseView
 {
     #region 绑定组件
 

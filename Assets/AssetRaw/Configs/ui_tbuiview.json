@@ -4,5 +4,23 @@
     "path": "Assets/Prefabs/Views/LoginView/LoginView.prefab",
     "view_type": 2,
     "desc": "登录界面"
+  },
+  {
+    "view_name": "CommonPopView",
+    "path": "Assets/Prefabs/Common/CommonPopView.prefab",
+    "view_type": 3,
+    "desc": "通用弹窗"
+  },
+  {
+    "view_name": "CreateRoleView",
+    "path": "Assets/Prefabs/Views/CreateRoleView/CreateRoleView.prefab",
+    "view_type": 2,
+    "desc": "创建角色界面"
+  },
+  {
+    "view_name": "RuleTipsView",
+    "path": "Assets/Prefabs/Common/RuleTipsView.prefab",
+    "view_type": 3,
+    "desc": "通用规则界面"
   }
 ]
