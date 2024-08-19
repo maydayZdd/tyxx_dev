@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UIView;
 
 public class LoginView : UIBaseView
 {
@@ -36,7 +37,8 @@ public class LoginView : UIBaseView
             Close();
         });
 
-        btn_gonggao.onClick.AddListener(() => {
+        btn_gonggao.onClick.AddListener(() =>
+        {
 
             UICtrlView.Instance.OpenCommonPopView(
                 ViewName.CommonPopView,
@@ -50,7 +52,8 @@ public class LoginView : UIBaseView
             Application.Quit();
         });
 
-        btn_seting.onClick.AddListener(() => {
+        btn_seting.onClick.AddListener(() =>
+        {
 
             Log.Info("开发中..");
         });
@@ -60,7 +63,7 @@ public class LoginView : UIBaseView
 
     public override void OnFlush(string key)
     {
-        txt_version.text = string.Format(Language.GameVersion, "v"+Application.version) ;
+        txt_version.text = string.Format(Language.GameVersion, "v" + Application.version);
     }
 
     public override void OnDestroy()
@@ -68,3 +71,5 @@ public class LoginView : UIBaseView
         base.OnDestroy();
     }
 }
+
+

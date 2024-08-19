@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UIView;
 
 /// <summary>
 /// 加载界面
@@ -25,6 +26,5 @@ public class LogingView : UIBaseView
     {
         base.OnDestroy();
     }
-
 
 }

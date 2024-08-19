@@ -411,7 +411,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1163501604}
   - component: {fileID: 1163501605}
-  - component: {fileID: 1163501606}
   m_Layer: 0
   m_Name: GameBoot
   m_TagString: Untagged
@@ -449,21 +448,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b172070c86563da47a97f1bbbd5c7a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayMode: 0
+  PlayMode: 2
   IsEnableLogInfo: 1
---- !u!114 &1163501606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163501603}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21f7e11453e41264db349c9bca59a149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AllowDebugging: 1
+  IsDebugger: 1
 --- !u!1 &1382301810
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UIView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,7 +33,7 @@ public class CommonPopView : UIBaseView
     #endregion
 
     private CommonPopViewData commonPopViewData;
-    public class CommonPopViewData
+    public struct CommonPopViewData
     {
         public string title;
         public string content;
@@ -51,15 +52,15 @@ public class CommonPopView : UIBaseView
     public override void OnInit()
     {
         base.OnInit();
-        commonPopViewData = ViewData as CommonPopViewData;
+        commonPopViewData = (CommonPopViewData)ViewData;
 
         btn_ok.onClick.AddListener(() =>
         {
-            if(commonPopViewData.ok_action != default)
+            if (commonPopViewData.ok_action != default)
             {
                 commonPopViewData.ok_action();
             }
-            
+
 
             Close();
 
@@ -67,7 +68,7 @@ public class CommonPopView : UIBaseView
 
         btn_cal.onClick.AddListener(() =>
         {
-            if(commonPopViewData.cal_action != default)
+            if (commonPopViewData.cal_action != default)
             {
                 commonPopViewData.cal_action();
             }
@@ -78,7 +79,8 @@ public class CommonPopView : UIBaseView
     }
 
     public override void OnFlush(string key)
-    {;
+    {
+        ;
         txt_title.text = commonPopViewData.title;
         txt_conter.text = commonPopViewData.content;
     }

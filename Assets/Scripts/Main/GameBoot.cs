@@ -8,6 +8,8 @@ using System.IO;
 using System.Linq;
 using HybridCLR;
 using System.Reflection;
+using Unity.VisualScripting;
+using System.Text;
 
 /// <summary>
 /// 游戏启动入口
@@ -27,6 +29,12 @@ public class GameBoot : MonoBehaviour
     public bool IsEnableLogInfo = true;
 
     /// <summary>
+    /// 是否开启日志
+    /// </summary>
+    [Header("是否开启Debugger")]
+    public bool IsDebugger = true;
+
+    /// <summary>
     /// 唯一自己
     /// </summary>
     public static GameBoot Behaviour = default; 
@@ -34,9 +42,9 @@ public class GameBoot : MonoBehaviour
     // 热更界面Obj
     private GameObject obj;
 
+
     void Awake()
     {
-        Debug.Log($"[GameBoot] 资源系统运行模式：{PlayMode}");
         Application.targetFrameRate = 60;
         Application.runInBackground = true;
         Behaviour = this;
@@ -44,11 +52,16 @@ public class GameBoot : MonoBehaviour
 
     void Start()
     {
+        if (IsDebugger)
+        {
+            Application.logMessageReceived += LogHandler;
+        }
         StartCoroutine(InitYooAssets(StartGame));
     }
 
     IEnumerator InitYooAssets(Action onComplete)
     {
+        Debug.Log($"[GameBoot] 资源系统运行模式：{PlayMode}");
         // 初始化事件系统
         UniEvent.Initalize();
 
@@ -96,13 +109,19 @@ public class GameBoot : MonoBehaviour
         Assembly hotUpdateAss = System.AppDomain.CurrentDomain.GetAssemblies().First(a => a.GetName().Name == "HotUpdate");
 #endif
 
+        //加载日志到调试器
+        _logInformations = sb.ToString();
+
         //加载热更程序集
         Type game_mgr_type = hotUpdateAss.GetType("GameManager");
         game_mgr_type.GetMethod("Run").Invoke(
             game_mgr_type, 
             new object[] {                  //传入参数
                 IsEnableLogInfo ,
+                IsDebugger,
+                _logInformations,
         });
+
 
         //销毁加载界面
         GameObject.Destroy(obj);
@@ -156,5 +175,49 @@ public class GameBoot : MonoBehaviour
     }
 
     #endregion
+
+    #region 日志相关
+
+    //存放启动日志
+    private static string _logInformations = default;
+    private static StringBuilder sb = new StringBuilder();
+
+    private static void LogHandler(string condition, string stackTrace, LogType type)
+    {
+        if (_logInformations != default)
+        {
+            sb.Clear();
+            Application.logMessageReceived -= LogHandler;
+            return;
+        }
+
+        string log_type = default;
+        if (type == LogType.Assert)
+        {
+            log_type = "Fatal";
+        }
+        else if (type == LogType.Exception || type == LogType.Error)
+        {
+            log_type = "Error";
+        }
+        else if (type == LogType.Warning)
+        {
+            log_type = "Warning";
+        }
+        else if (type == LogType.Log)
+        {
+            log_type = "Info";
+        }
+        sb.Append(DateTime.Now.ToString("HH:mm:ss"));
+        sb.Append("#");
+        sb.Append(condition);
+        sb.Append("#");
+        sb.Append(stackTrace);
+        sb.Append("#");
+        sb.Append(log_type);
+        sb.Append("|");
+    }
+
+    #endregion  
 
 }

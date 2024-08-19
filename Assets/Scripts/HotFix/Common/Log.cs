@@ -35,7 +35,8 @@ public class Log
     #region 日志
     public static void Info(object message, bool recordStackTrace = false)
     {
-        string str = "[I]" + GetLogTime() + message;
+        //string str = "[I]" + GetLogTime() + message;
+        string str = message.ToString();
         AddListLogs(str);
         if (!EnableLog)
             return;
@@ -46,7 +47,8 @@ public class Log
 
     public static void Warning(object message)
     {
-        string str = "[W]" + GetLogTime() + message;
+        //string str = "[W]" + GetLogTime() + message;
+        string str = message.ToString();
         AddListLogs(str);
         Debug.LogWarning(Prefix + str, null);
         LogToFile(str, true);
@@ -54,7 +56,8 @@ public class Log
 
     public static void Error(object message)
     {
-        string str = "[E]" + GetLogTime() + message;
+        //string str = "[E]" + GetLogTime() + message;
+        string str = message.ToString();
         Debug.LogError(Prefix + str, null);
         if (!EnableLog)
         {

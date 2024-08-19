@@ -19,6 +19,7 @@ public partial class Tables
     public attr.TbAttribute TbAttribute {get; }
     public ratio.TbRatioAttr TbRatioAttr {get; }
     public rule.TbRuleTips TbRuleTips {get; }
+    public crtag.TbRoleTag TbRoleTag {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
@@ -27,6 +28,7 @@ public partial class Tables
         TbAttribute = new attr.TbAttribute(loader("attr_tbattribute"));
         TbRatioAttr = new ratio.TbRatioAttr(loader("ratio_tbratioattr"));
         TbRuleTips = new rule.TbRuleTips(loader("rule_tbruletips"));
+        TbRoleTag = new crtag.TbRoleTag(loader("crtag_tbroletag"));
         ResolveRef();
     }
     
@@ -37,6 +39,7 @@ public partial class Tables
         TbAttribute.ResolveRef(this);
         TbRatioAttr.ResolveRef(this);
         TbRuleTips.ResolveRef(this);
+        TbRoleTag.ResolveRef(this);
     }
 }
 

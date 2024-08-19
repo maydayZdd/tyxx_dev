@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "attr_type": 0,
+    "drop_num": 18,
+    "desc": "莽夫",
+    "action_num": 1,
+    "quality": 3
+  },
+  {
+    "id": 2,
+    "attr_type": 0,
+    "drop_num": 30,
+    "desc": "力拔山兮",
+    "action_num": 1,
+    "quality": 6
+  },
+  {
+    "id": 3,
+    "attr_type": 1,
+    "drop_num": 18,
+    "desc": "虎背熊腰",
+    "action_num": 1,
+    "quality": 2
+  },
+  {
+    "id": 4,
+    "attr_type": 1,
+    "drop_num": 25,
+    "desc": "要无敌了",
+    "action_num": 1,
+    "quality": 5
+  },
+  {
+    "id": 5,
+    "attr_type": 2,
+    "drop_num": 20,
+    "desc": "入道",
+    "action_num": 1,
+    "quality": 4
+  },
+  {
+    "id": 6,
+    "attr_type": 2,
+    "drop_num": 30,
+    "desc": "神乎其神",
+    "action_num": 1,
+    "quality": 6
+  },
+  {
+    "id": 7,
+    "attr_type": 3,
+    "drop_num": 5,
+    "desc": "头大",
+    "action_num": 0,
+    "quality": 1
+  },
+  {
+    "id": 8,
+    "attr_type": 3,
+    "drop_num": 18,
+    "desc": "奇才",
+    "action_num": 1,
+    "quality": 4
+  },
+  {
+    "id": 9,
+    "attr_type": 3,
+    "drop_num": 25,
+    "desc": "天才",
+    "action_num": 1,
+    "quality": 5
+  },
+  {
+    "id": 10,
+    "attr_type": 4,
+    "drop_num": 5,
+    "desc": "小黑子",
+    "action_num": 0,
+    "quality": 3
+  },
+  {
+    "id": 11,
+    "attr_type": 4,
+    "drop_num": 10,
+    "desc": "顺风顺水",
+    "action_num": 1,
+    "quality": 2
+  },
+  {
+    "id": 12,
+    "attr_type": 4,
+    "drop_num": 25,
+    "desc": "鸿运当头",
+    "action_num": 1,
+    "quality": 5
+  }
+]
