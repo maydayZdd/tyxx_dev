@@ -36,7 +36,7 @@ namespace Common
 
         public static void Recovery<T>(GameObject obj)
         {
-            if(CachePools == default)
+            if (CachePools == default)
             {
                 CachePools = new GameObject();
                 CachePools.name = "ObjectPools";

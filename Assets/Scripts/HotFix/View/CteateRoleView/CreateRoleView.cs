@@ -158,9 +158,8 @@ public class CreateRoleView : UIBaseView
 
                 if (config.ActionNum == 1)
                 {
-                    if (_array[i] >= config.DropNum)
+                    if (_array[i] > config.DropNum)
                     {
-
                         CreateRoleTagEntity.InitData initData = ReferencePools.Acquire<CreateRoleTagEntity.InitData>();
                         initData.Quality = config.Quality;
                         initData.Desc = config.Desc;

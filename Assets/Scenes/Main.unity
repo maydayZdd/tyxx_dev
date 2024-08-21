@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b172070c86563da47a97f1bbbd5c7a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayMode: 2
+  PlayMode: 0
   IsEnableLogInfo: 1
   IsDebugger: 1
 --- !u!1 &1382301810

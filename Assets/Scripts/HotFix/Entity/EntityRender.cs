@@ -45,16 +45,29 @@ public sealed class EntityRender<T> where T : Entity, new()
         to_view = baseView;
     }
 
-    public void SetData<DATA>(List<DATA> listData = default) where DATA : IReference
+    public void SetData<DATA>(List<DATA> listData) where DATA : IReference
     {
         //回收所有的对象
-        if (listData == default)
+        if (listData.Count == 0)
         {
             int count = queye_entitys.Count;
-            for (int i = 0; i < count; i++) {
+            for (int i = 0;i < count; i++ )
+            {
                 Entity entity = queye_entitys.Dequeue();
                 entity.OnRecovery();
                 ObjectPools.Recovery<T>(entity.ActiveObj);
+            }
+            Log.Info($"全部回收 ： {queye_entitys.Count}");
+            return;
+        }
+
+        if (listData.Count == queye_entitys.Count)
+        {
+            int count = 0;
+            foreach (Entity entity in queye_entitys)
+            {
+                entity.SetData<DATA>(listData[count]);
+                count++;
             }
             return;
         }
@@ -71,36 +84,60 @@ public sealed class EntityRender<T> where T : Entity, new()
                 ObjectPools.Recovery<T>(entity.ActiveObj);
             }
 
-
+            int count = 0;
+            foreach (Entity entity in queye_entitys)
+            {
+                entity.SetData<DATA>(listData[count]);
+                count++;
+            }
+            return;
         }
 
-        UniTask.Void(async () =>
+        if (listData.Count > queye_entitys.Count)
         {
-            if (handle == null)
+            //需要实例化的个数
+            int count = 0;
+            foreach (Entity entity in queye_entitys)
             {
-                handle = YooAssets.LoadAssetAsync<GameObject>(res_path);
+                entity.SetData<DATA>(listData[count]);
+                count++;
             }
-            await handle.Task;
 
-            for (int i = 0; i < listData.Count; i++)
+            if(listData.Count > count)
             {
-                bool is_Init = false;
-                GameObject go = ObjectPools.Acquire<T>(handle, out is_Init);
-                go.transform.SetParent(parent_trans);
-                if (go.GetComponent<T>() == null)
+                UniTask.Void(async () =>
                 {
-                    go.AddComponent<T>();
-                }
-                Entity entity = go.GetComponent<T>();
-                entity.ToView = to_view;
-                if (is_Init) 
-                {
-                    entity.OnInit();
-                }
-                entity.SetData<DATA>(listData[i]);
-                queye_entitys.Enqueue(entity);
+                    if (handle == null)
+                    {
+                        handle = YooAssets.LoadAssetAsync<GameObject>(res_path);
+                    }
+                    await handle.Task;
+
+                    for (int i = count; i < listData.Count; i++)
+                    {
+                        bool is_Init = false;
+                        GameObject go = ObjectPools.Acquire<T>(handle, out is_Init);
+                        go.transform.SetParent(parent_trans);
+                        if (go.GetComponent<T>() == null)
+                        {
+                            go.AddComponent<T>();
+                        }
+                        Entity entity = go.GetComponent<T>();
+                        entity.ToView = to_view;
+                        if (is_Init)
+                        {
+                            entity.OnInit();
+                        }
+                        entity.SetData<DATA>(listData[i]);
+                        queye_entitys.Enqueue(entity);
+                    }
+                });
             }
-        });
+
+            return;
+        }
+
+
     }
 
     /// <summary>

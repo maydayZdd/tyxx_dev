@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 using System;
+using UnityEngine.U2D;
 
 /// <summary>
 /// 打包工具
@@ -39,4 +40,5 @@ public static class BulidTool
 
         
     }
+
 }
